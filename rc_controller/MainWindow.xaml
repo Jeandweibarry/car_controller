@@ -4,122 +4,813 @@
         Title="RC Controller" Height="731" Width="1149">
 
     <!-- Canvas allows free-form placement -->
-    <Canvas Background="#011B40">
-
+    <Canvas Background="#313942">
         <!-- FORWARD button -->
-        <Button Content="FORWARD" Width="150" Height="80" FontSize="22"
-                Canvas.Left="214" Canvas.Top="278"
-                PreviewMouseLeftButtonDown="ButtonForward_Pressed"
-                PreviewMouseLeftButtonUp="ButtonForward_Released" RenderTransformOrigin="0.367,2.341" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle 
+            Height="715" 
+            Canvas.Left="779" 
+            Stroke="#FF171E21"
+            Width="370" 
+            Fill="#FF171E21"/>
+        <Rectangle 
+            Height="336" 
+            Stroke="#FF171E21" 
+            Width="1149" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Canvas.Top="379" 
+            Fill="#FF171E21"/>
+        <!-- FORWARD button -->
+        <Button 
+            Width="98"
+            Height="94"
+            FontSize="22"
+            Canvas.Left="302" 
+            Canvas.Top="463"
+            PreviewMouseLeftButtonDown="ButtonForward_Pressed"
+            PreviewMouseLeftButtonUp="ButtonForward_Released" 
+            RenderTransformOrigin="0.367,2.341" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20"
+                        BorderBrush="Transparent"
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush
+                                ImageSource="/Images/Button_Up.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
 
         <!-- BACKWARD button -->
-        <Button Content="BACKWARD" Width="150" Height="80" FontSize="22"
-                Canvas.Left="214" Canvas.Top="503"
+        <Button Width="98" 
+                Height="94" 
+                FontSize="22"
+                Canvas.Left="302" 
+                Canvas.Top="564"
                 PreviewMouseLeftButtonDown="ButtonBackward_Pressed"
-                PreviewMouseLeftButtonUp="ButtonBackward_Released" RenderTransformOrigin="1.216,0.486" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                PreviewMouseLeftButtonUp="ButtonBackward_Released" 
+                RenderTransformOrigin="1.216,0.486" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent"
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Button_Down.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
 
         <!-- LEFT button -->
-        <Button Content="LEFT" Width="150" Height="80" FontSize="22"
-                Canvas.Left="65" Canvas.Top="393"
-                PreviewMouseLeftButtonDown="ButtonLeft_Pressed"
-                PreviewMouseLeftButtonUp="ButtonLeft_Released" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button 
+            Width="85" 
+            Height="109" FontSize="22"
+            Canvas.Left="212" Canvas.Top="508"
+            PreviewMouseLeftButtonDown="ButtonLeft_Pressed"
+            PreviewMouseLeftButtonUp="ButtonLeft_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Button_Left.png" 
+                                Stretch="UniformToFill"/>
+
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
 
         <!-- RIGHT button -->
-        <Button Content="RIGHT" Width="150" Height="80" FontSize="22"
-                Canvas.Left="374" Canvas.Top="393"
-                PreviewMouseLeftButtonDown="ButtonRight_Pressed"
-                PreviewMouseLeftButtonUp="ButtonRight_Released" RenderTransformOrigin="0.245,1.386" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button 
+            Width="85" 
+            Height="109" 
+            FontSize="22"
+            Canvas.Left="405" Canvas.Top="508"
+            PreviewMouseLeftButtonDown="ButtonRight_Pressed"
+            PreviewMouseLeftButtonUp="ButtonRight_Released" 
+            RenderTransformOrigin="0.245,1.386" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
 
-        <Button Content="M-" Canvas.Left="65" Canvas.Top="618" Height="56" Width="76" Click="mMinus" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="M+" Canvas.Left="177" Canvas.Top="618" Height="56" Width="76" HorizontalAlignment="Left" VerticalAlignment="Center" Click="mPlus" RenderTransformOrigin="0.461,0.451" FontSize="20"/>
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
 
-        <TextBox x:Name="DebugTextBox"
-         Canvas.Left="846"
-         Canvas.Top="55"
-         Width="237"
-         Height="40"
-         TextWrapping="Wrap"
-         IsReadOnly="True"
-         Text="Waiting for data..." HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
 
-        <!---->
-        <TextBox x:Name="VoltageTextBox"
-         Canvas.Left="65"
-         Canvas.Top="35"
-         Width="128"
-         Height="40"
-         TextWrapping="Wrap"
-         IsReadOnly="True"
-         Text="Voltage : " HorizontalAlignment="Center" VerticalAlignment="Top" TextChanged="VoltageTextBox_TextChanged" />
-        <TextBox  x:Name="TemperatureTextBox"
-         Canvas.Left="633"
-         Canvas.Top="35"
-         Width="128"
-         Height="40"
-         TextWrapping="Wrap"
-         IsReadOnly="True"
-         Text="Temperature : " HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBox  x:Name="HumidityTextBox"
-         Canvas.Left="441"
-         Canvas.Top="35"
-         Width="128"
-         Height="40"
-         TextWrapping="Wrap"
-         IsReadOnly="True"
-         Text="Humidity : " HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBox  x:Name="MoistureTextBox"
-         Canvas.Left="247"
-         Canvas.Top="35"
-         Width="128"
-         Height="40"
-         TextWrapping="Wrap"
-         IsReadOnly="True"
-         Text="Moisture : " HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <!---->
-        <Button Content="VOLTAGE" Canvas.Left="65" Canvas.Top="101" Height="36" Width="128" Click="VOLTAGE_BUTTON" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button Content="HUMIDITY" Canvas.Left="441" Canvas.Top="101" Height="36" Width="128" Click="HUMIDITY_BUTTON" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="MOISTURE" Canvas.Left="247" Canvas.Top="101" Height="36" Width="128" Click="MOISTURE_BUTTON" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="TEMPERATURE" Canvas.Left="633" Canvas.Top="101" Height="36" Width="128" Click="TEMPERATURE_BUTTON" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Button_Right.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
 
-        <!--button for servo-->
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <!-- Decrease motor speed button -->
+        <Button 
+            Canvas.Left="54" 
+            Canvas.Top="576" 
+            Height="82" 
+            Width="102" 
+            Click="mMinus" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Motor_Down.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <!-- Increase motor speed button -->
+        <Button 
+            Canvas.Left="54"
+            Canvas.Top="480"
+            Height="82"
+            Width="102" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Click="mPlus" 
+            RenderTransformOrigin="0.461,0.451" 
+            FontSize="20">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Motor_Up.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <!-- Information textbox -->
+        <TextBox 
+            x:Name="DebugTextBox"
+            Canvas.Left="54"
+            Canvas.Top="400"
+            Width="431"
+            Height="54"
+            TextWrapping="Wrap"
+            IsReadOnly="True"
+            Text="Waiting for data..." 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            BorderBrush="#FF00979C"
+            BorderThickness="5" FontSize="24" Foreground="White" VerticalContentAlignment="Center">
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+
+        <!-- Voltage textbox -->
+        <TextBox 
+            x:Name="VoltageTextBox"
+            Canvas.Left="673"
+            Canvas.Top="441"
+            Width="106"
+            Height="33"
+            TextWrapping="Wrap"
+            IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            TextChanged="VoltageTextBox_TextChanged" FontSize="20" Text="testing" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+        <!-- Temperature textbox -->
+        <TextBox  
+            x:Name="TemperatureTextBox"
+            Canvas.Left="673"
+            Canvas.Top="624"
+            Width="106"
+            Height="32"
+            TextWrapping="Wrap"
+            IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" FontSize="20" Text="testing" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+        <!-- Humidity textbox -->
+        <TextBox  
+            x:Name="HumidityTextBox"
+            Canvas.Left="673"
+            Canvas.Top="560"
+            Width="106"
+            Height="32"
+            TextWrapping="Wrap"
+            IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" FontSize="20" Text="testing" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+        <!-- Moisture textbox -->
+        <TextBox  
+            x:Name="MoistureTextBox"
+            Canvas.Left="673"
+            Canvas.Top="498"
+            Width="106"
+            Height="36"
+            TextWrapping="Wrap"
+            IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" FontSize="20" Text="testing" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <!-- Voltage data update-->
+        <Button 
+            Content="VOLTAGE" 
+            Canvas.Left="543" 
+            Canvas.Top="441" 
+            Height="33" 
+            Width="115" 
+            Click="VOLTAGE_BUTTON" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            BorderThickness="0"
+            Background="#FF00979C">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10,10,10,10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Humidity data update-->
+        <Button 
+            Content="HUMIDITY" 
+            Canvas.Left="543" 
+            Canvas.Top="560" 
+            Height="32" 
+            Width="115" 
+            Click="HUMIDITY_BUTTON" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            BorderThickness="0"
+            Background="#FF00979C">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10,10,10,10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Moisture data update-->
+        <Button 
+            Content="MOISTURE" 
+            Canvas.Left="543" 
+            Canvas.Top="498" 
+            Height="34" 
+            Width="115" 
+            Click="MOISTURE_BUTTON" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            BorderThickness="0"
+            Background="#FF00979C">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10,10,10,10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Temperature data update-->
+        <Button 
+            Content="TEMPERATURE" 
+            Canvas.Left="543" 
+            Canvas.Top="624" 
+            Height="32" 
+            Width="115" 
+            Click="TEMPERATURE_BUTTON" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            BorderThickness="0"
+            Background="#FF00979C">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10,10,10,10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <!--servo 1 Increment/Decrement-->
+        <Button 
+            Canvas.Left="837" 
+            Canvas.Top="201" 
+            Height="86" 
+            Width="106" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            FontSize="40" 
+            PreviewMouseLeftButtonDown="s1minus_press"
+            PreviewMouseLeftButtonUp="s1minus_Released">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Decrement.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button 
+            Canvas.Left="1004" 
+            Canvas.Top="201" 
+            Height="86" 
+            Width="106" 
+            RenderTransformOrigin="0.461,0.451" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            FontSize="40"
+            PreviewMouseLeftButtonDown="s1plus_press"
+            PreviewMouseLeftButtonUp="s1plus_Released" 
+            Click="Button_Click">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Increment.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+        <!--servo 2 Increment/Decrement-->
+
+        <Button 
+            Canvas.Left="837" 
+            Canvas.Top="328" 
+            Height="86"
+            Width="106" 
+            FontSize="40" 
+            PreviewMouseLeftButtonDown="s2minus_press"
+            PreviewMouseLeftButtonUp="s2minus_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Decrement.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <Button 
+            Canvas.Left="1004" 
+            Canvas.Top="328" 
+            Height="86" 
+            Width="106" 
+            RenderTransformOrigin="0.461,0.451" 
+            FontSize="40"
+            PreviewMouseLeftButtonDown="s2plus_press"
+            PreviewMouseLeftButtonUp="s2plus_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Increment.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <!--servo 3 Increment/Decrement-->
+        <Button 
+            Canvas.Left="837" 
+            Canvas.Top="455" 
+            Height="86" 
+            Width="106" 
+            FontSize="40" 
+            PreviewMouseLeftButtonDown="s3minus_press"
+            PreviewMouseLeftButtonUp="s3minus_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Decrement.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <Button 
+            Canvas.Left="1004" 
+            Canvas.Top="455" 
+            Height="86" 
+            Width="106"
+            RenderTransformOrigin="0.461,0.451" 
+            FontSize="40"
+            PreviewMouseLeftButtonDown="s3plus_press"
+            PreviewMouseLeftButtonUp="s3plus_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Increment.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <!--servo 4 Increment/Decrement-->
+
+        <Button 
+            Canvas.Left="837" 
+            Canvas.Top="587" 
+            Height="86" 
+            Width="106" 
+            FontSize="40" 
+            PreviewMouseLeftButtonDown="s4minus_press"
+            PreviewMouseLeftButtonUp="s4minus_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Decrement.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <Button 
+            Canvas.Left="1004" 
+            Canvas.Top="587" 
+            Height="86" 
+            Width="106" 
+            RenderTransformOrigin="0.461,0.451" 
+            FontSize="40"
+            PreviewMouseLeftButtonDown="s4plus_press"
+            PreviewMouseLeftButtonUp="s4plus_Released" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Increment.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+        <Label
+            Content="Arm Rotation:"
+            Canvas.Left="801"
+            Canvas.Top="154"
+            Height="34" 
+            Width="309" 
+            FontSize="22"
+            Foreground="White"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"/>
         
-        <!--servo 1-->
-        <Button Content="-" Canvas.Left="621" Canvas.Top="257" Height="56" Width="76" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="40" 
-                PreviewMouseLeftButtonDown="s1minus_press"
-                PreviewMouseLeftButtonUp="s1minus_Released"/>
-        <Button Content="+" Canvas.Left="730" Canvas.Top="257" Height="56" Width="76" RenderTransformOrigin="0.461,0.451" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40"
-                PreviewMouseLeftButtonDown="s1plus_press"
-                PreviewMouseLeftButtonUp="s1plus_Released"/>
-        <!--servo 2-->
-       
-        <Button Content="-" Canvas.Left="621" Canvas.Top="348" Height="56" Width="76" FontSize="40" 
-                PreviewMouseLeftButtonDown="s2minus_press"
-                PreviewMouseLeftButtonUp="s2minus_Released" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label
+            Content="Servo A:"
+            Canvas.Left="801"
+            Canvas.Top="282" 
+            Height="36" 
+            Width="309" 
+            FontSize="22" 
+            Foreground="White"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"/>
         
-        <Button Content="+" Canvas.Left="730" Canvas.Top="348" Height="56" Width="76" RenderTransformOrigin="0.461,0.451" FontSize="40"
-         PreviewMouseLeftButtonDown="s2plus_press"
-         PreviewMouseLeftButtonUp="s2plus_Released" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label
+            Content="Servo B:"
+            Canvas.Left="801"
+            Canvas.Top="409"
+            Height="45"
+            Width="309" 
+            FontSize="22"
+            Foreground="White"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"/>
         
-        <!--servo 3-->
-        <Button Content="-" Canvas.Left="621" Canvas.Top="458" Height="56" Width="76" FontSize="40" 
-                PreviewMouseLeftButtonDown="s3minus_press"
-                PreviewMouseLeftButtonUp="s3minus_Released" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-        <Button Content="+" Canvas.Left="730" Canvas.Top="458" Height="56" Width="76" RenderTransformOrigin="0.461,0.451" FontSize="40"
-                PreviewMouseLeftButtonDown="s3plus_press"
-                PreviewMouseLeftButtonUp="s3plus_Released" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-
-        <!--servo 4-->
+        <Label 
+            Content="Servo C:" 
+            Canvas.Left="801"
+            Canvas.Top="541"
+            Height="51" 
+            Width="309"
+            FontSize="22"
+            Foreground="White" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"/>
         
-        <Button Content="-" Canvas.Left="621" Canvas.Top="543" Height="56" Width="76" FontSize="40" 
-                PreviewMouseLeftButtonDown="s4minus_press"
-                PreviewMouseLeftButtonUp="s4minus_Released" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Image 
+            Height="259" 
+            Canvas.Left="131"
+            Canvas.Top="58"
+            Width="527" 
+            Source="/arduino_logo.png" 
+            Stretch="UniformToFill"
+            SnapsToDevicePixels="True" 
+            Opacity="0.05"/>
         
-        <Button Content="+" Canvas.Left="730" Canvas.Top="538" Height="56" Width="76" RenderTransformOrigin="0.461,0.451" FontSize="40"
-                PreviewMouseLeftButtonDown="s4plus_press"
-                PreviewMouseLeftButtonUp="s4plus_Released" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox 
+            x:Name="DebugTextBox_Copy"
+            Canvas.Left="801"
+            Canvas.Top="58"
+            Width="242"
+            Height="54"
+            TextWrapping="Wrap"
+            IsReadOnly="True" 
+            BorderBrush="#FF00979C"
+            BorderThickness="5" 
+            FontSize="24" 
+            Foreground="White" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Text="Select COM port" 
+            RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+        <ComboBox
+            Canvas.Left="801"
+            Canvas.Top="58"
+            Width="242"
+            Height="54"
+            FontSize="24"
+            Text="Select COM port"
+            BorderBrush="#FF00979C"
+            BorderThickness="5"
+            Foreground="White"
+            Background="#FF171E21"
+            SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center">
 
+            <!-- Style for dropdown items -->
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="#FF171E21"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter Property="Background" Value="#FF00979C"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ComboBox.ItemContainerStyle>
 
+        </ComboBox>
+        <Button
+            Width="75"
+            Height="74"
+            Canvas.Left="1058"
+            Canvas.Top="48" 
+            Click="Button_Click_1" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+            <Button.Template>
+                <ControlTemplate 
+                    TargetType="{x:Type Button}">
+
+                    <Border 
+                        CornerRadius="20" 
+                        BorderBrush="Transparent" 
+                        BorderThickness="0">
+
+                        <Border.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/Search.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
 
     </Canvas>
 </Window>

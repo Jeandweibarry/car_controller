@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arduino_logo.png" />
     <None Remove="Images\698.png" />
     <None Remove="Images\bg_1.png" />
     <None Remove="Images\bg_2.png" />
@@ -63,6 +64,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="arduino_logo.png" />
     <Resource Include="Images\698.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
